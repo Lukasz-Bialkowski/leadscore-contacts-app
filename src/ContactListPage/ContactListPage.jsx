@@ -7,20 +7,20 @@ import { fetchContacts } from "../_actions/contactsPageActions";
 
 class ContactListPage extends Component {
   componentDidMount() {
-    this.props.fetchContacts();
+    this.props.fetchContacts({});
   }
 
   renderContacts = contacts =>
     contacts.map(contact => <Contact {...contact} key={contact.id} />);
 
   render() {
-    const { contactList } = this.props;
+    const { contactListData: { data: contactsList } } = this.props;
 
     return (
       <Fragment>
         <LoadingWrapper isFetching={this.props.isFetching} >
           <h1>Contact List!</h1>
-          {this.renderContacts(contactList)}
+          { contactsList && this.renderContacts(contactsList)}
         </LoadingWrapper>
       </Fragment>
     );
@@ -30,7 +30,7 @@ class ContactListPage extends Component {
 const mapStateToProps = state => ({
   isFetching: state.contactsList.isFetching,
   isError: state.contactsList.isError,
-  contactList: state.contactsList.data
+  contactListData: state.contactsList.data,
 });
 
 const mapDispatchToProps = dispatch => ({

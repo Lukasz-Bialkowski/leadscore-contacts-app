@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { postLoginRequest } from '../_actions/loginPageActions';
+import { login } from '../_actions/authActions';
 
 class LoginPage extends Component {
   constructor(props) {
@@ -15,22 +15,18 @@ class LoginPage extends Component {
   }
 
   handleFormChange = ({ target: { name, value } }) => {
-    console.log('Inside handleFormChange', name, value);
     this.setState({ [name]: value });
   };
 
   handleFormSubmit = event => {
-    console.log('Inside handleFormSubmit', event);
     event.preventDefault();
     this.setState({ submitted: true });
 
     const { login, password } = this.state;
-    const { postLoginRequest } = this.props;
+    const { postLogin } = this.props;
 
     if (login && password) {
-      console.log('Inside if', postLoginRequest);
-      console.log('Props', this.props);
-      postLoginRequest({login, password});
+      postLogin({login, password});
     }
   };
 
@@ -71,7 +67,7 @@ class LoginPage extends Component {
           </div>
           <div>
             <button type="submit" className="btn login-btn">Login</button>
-            <Link to="/sign-up" className="btn sign-up-btn">Sign up</Link>
+            <Link to="https://app-staging.leadscore.io/#/signup" className="btn sign-up-btn">Sign up</Link>
           </div>
         </form>
       </div>
@@ -81,7 +77,7 @@ class LoginPage extends Component {
 
 const mapStateToProps = state => ({});
 const mapDispatchToProps = dispatch => ({
-  postLoginRequest: params => dispatch(postLoginRequest(params))
+  postLogin: params => dispatch(login(params))
 });
 export default connect(
   mapStateToProps,
