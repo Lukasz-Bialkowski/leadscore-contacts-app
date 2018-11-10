@@ -1,9 +1,14 @@
-import React from 'react';
-import { compose } from 'redux';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { compose } from "redux";
+import { withRouter } from "react-router-dom";
 
-import Routes from './_routes';
+import Layout from "./Layout";
+import Routes from "./_routes";
 
-const App = () => <div><Routes /></div>;
+const App = () => (
+  <Layout>
+    <Routes />
+  </Layout>
+);
 
 export default compose(withRouter)(App);
