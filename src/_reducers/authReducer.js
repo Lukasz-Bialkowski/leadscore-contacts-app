@@ -4,7 +4,7 @@ import {
   AUTHENTICATION_ERROR,
 } from '../_actions/loginPageActions';
 
-const INITIAL_STATE = { data: {}, isFetching: false, isError: false };
+const INITIAL_STATE = { data: null, isFetching: false, isError: false };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
   console.log('Inside authReducer', state);

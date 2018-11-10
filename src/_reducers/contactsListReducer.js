@@ -7,7 +7,7 @@ import {
 const INITIAL_STATE = { data: [], isFetching: false, isError: false };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
-  console.log('Inside authReducer', state);
+  console.log('Inside contactsListReducer', state);
   switch (type) {
     case CONTACTS_LIST_FETCHING:
       return {

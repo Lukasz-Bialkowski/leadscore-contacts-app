@@ -5,7 +5,7 @@ import authReducer from './authReducer';
 import contactsListReducer from './contactsListReducer';
 
 export default combineReducers({
-  authReducer,
-  contactsListReducer,
+  authData: authReducer,
+  contactsList: contactsListReducer,
   routerReducer,
 });

@@ -9,14 +9,18 @@ export const makeSuccessAction = payload => ({
 export const makeFailedAction = error => ({ type: CONTACTS_LIST_ERROR, error });
 export const makeFetchingAction = () => ({ type: CONTACTS_LIST_FETCHING });
 
-const TEMP = [{ username: 'username', telephone: 'telephone' }];
+const TEMP = [
+  { id: '1', username: 'username', telephone: 'telephone' },
+  { id: '2', username: 'username2', telephone: 'telephone2' },
+];
 
-export const fetchContacts = () => (dispatch) => {
+export const fetchContacts = (params) => (dispatch) => {
+  console.log('fetchContacts', params);
   dispatch(makeFetchingAction());
   new Promise((resolve) => {
     setTimeout(() => resolve({ data: TEMP }), 4000);
   })
-    .then(res => dispatch(makeSuccessAction(res)))
+    .then(res => dispatch(makeSuccessAction(res.data)))
     .catch((err) => {
       console.log('Error fetching contacts', err);
       dispatch(makeFailedAction());
