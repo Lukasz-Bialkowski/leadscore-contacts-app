@@ -1,4 +1,5 @@
 import { postLogin, postLogout } from '../_handlers/authHandler';
+import { push } from 'react-router-redux';
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_ERROR = "LOGIN_ERROR";
@@ -57,6 +58,7 @@ export const logout = params => dispatch => {
     .then(() => {
       localStorage.removeItem("authToken");
       dispatch(makeLogoutSuccessAction());
+      dispatch(push('/main'));
     })
     .catch(err => {
       dispatch(makeLogoutErrorAction());

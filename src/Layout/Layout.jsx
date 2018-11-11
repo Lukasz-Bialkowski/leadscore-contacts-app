@@ -1,21 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
 
-const Layout = ({ children, isAuthenticated }) => {
+import { logout } from "../_actions/authActions";
+import NavBar from './NavBar';
+
+const Layout = props => {
+  const { children, ...navbarProps } = props;
+
   return (
-    <div>
-      { !isAuthenticated ? <Link to='/login'>Login</Link> : <Link to='/logout'>Logout</Link> }
-      <Link to='/contacts'>Contacts</Link>
-      <Link to='/main'>Main</Link>
+    <Fragment>
+      <NavBar {...navbarProps} />
       {children}
-      <p>Leadscore-contacts-app by @Lukasz Bialkowski</p>
-    </div>
-  )
+      <footer>Leadscore-contactss-app by @Lukasz Bialkowski</footer>
+    </Fragment>
+  );
 };
 
 const mapStateToProps = state => ({
   isAuthenticated: state.authData.isAuthenticated,
+  authToken: state.authData.authToken
 });
 
-export default connect(mapStateToProps)(Layout);
+const mapDispatchToProps = dispatch => ({
+  logout: params => dispatch(logout(params))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Layout);

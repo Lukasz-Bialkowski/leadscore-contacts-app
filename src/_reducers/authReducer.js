@@ -39,6 +39,7 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         isAuthenticated: false,
+        data: null,
       }
     default:
       return state;
