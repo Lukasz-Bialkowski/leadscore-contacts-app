@@ -1,18 +1,15 @@
 import React from 'react';
-import Placeholder from './Placeholder';
+import Placeholder, { ERROR_SVG_NAME } from './Placeholder';
 
 const TITLE = 'Contacts list error';
 const SUBTITLE = 'There was an error fetching contacts';
-const IMG_ALT = 'Contacts list error image';
-const IMG_SRC = '';
 const CUSTOM_CLASS_NAME = 'contacts-list-error';
 
 const ContactsListError = () => (
   <Placeholder
     title={TITLE}
-    subtitle={SUBTITLE} 
-    imgSrc={IMG_SRC}
-    imgAlt={IMG_ALT}
+    subtitle={SUBTITLE}
+    svgName={ERROR_SVG_NAME}
     customClassName={CUSTOM_CLASS_NAME}
   />
 );

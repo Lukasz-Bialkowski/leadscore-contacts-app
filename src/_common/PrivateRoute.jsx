@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import withAuthProtection from '../_common/withAuthProtection';
+import withAuthProtection from './withAuthProtection';
 
-const PrivateRoute = ({component, ...props}) => {
-  return <Route component={withAuthProtection(component)} {...props} />
-}
+const PrivateRoute = ({ component, ...props }) => (
+  <Route component={withAuthProtection(component)} {...props} />
+);
 
 export default PrivateRoute;

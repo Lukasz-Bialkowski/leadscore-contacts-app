@@ -1,13 +1,13 @@
-import React, { Suspense } from "react";
+import React, { Suspense } from 'react';
 
-const withDynamicImport = Component => {
-  const WithDynamicImport = props => {
-    return (
-      <Suspense fallback={<div>Loading...</div>}>
-        <Component {...props} />
-      </Suspense>
-    );
-  };
+import SpinnerCircle from './SpinnerCircle';
+
+const withDynamicImport = (Component) => {
+  const WithDynamicImport = props => (
+    <Suspense fallback={<SpinnerCircle />}>
+      <Component {...props} />
+    </Suspense>
+  );
   return WithDynamicImport;
 };
 

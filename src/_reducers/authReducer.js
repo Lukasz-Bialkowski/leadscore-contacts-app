@@ -3,10 +3,12 @@ import {
   LOGIN_ERROR,
   LOGIN_FETCHING,
   STORE_AUTH_DATA,
-  LOGOUT_SUCCESS
+  LOGOUT_SUCCESS,
 } from '../_actions/authActions';
 
-const INITIAL_STATE = { data: null, isFetching: false, isError: false, isAuthenticated: false };
+const INITIAL_STATE = {
+  data: null, isFetching: false, isError: false, isAuthenticated: false,
+};
 
 export default (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
@@ -40,7 +42,7 @@ export default (state = INITIAL_STATE, { type, payload }) => {
         ...state,
         isAuthenticated: false,
         data: null,
-      }
+      };
     default:
       return state;
   }

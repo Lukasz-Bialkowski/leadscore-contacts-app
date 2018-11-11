@@ -12,7 +12,7 @@ const NotFoundPageLoadable = lazy(() => import('../NotFoundPage'));
 
 export default () => (
   <Switch>
-    <Route exact path="/" render={()=><Redirect to='/main'/>} />
+    <Route exact path="/" render={() => <Redirect to="/main" />} />
     <Route exact path="/main" component={withDynamicImport(MainPageLoadable)} />
     <Route exact path="/login" component={withDynamicImport(LoginPageLoadable)} />
     <Route exact path="/unauthorized" component={withDynamicImport(UnauthorizedPageLoadable)} />

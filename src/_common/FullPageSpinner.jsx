@@ -4,21 +4,20 @@ import styled from 'styled-components';
 import SpinnerCircleSVG from '../images/spinner.svg';
 
 const SpinnerWrapper = styled.div.attrs({ className: 'spinner-wrapper' })`
-  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+  height: 55vh;
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: #ffffff33;
   align-items: center;
-  padding: 20px;
 `;
 
-const SpinnerCircle = ({ width = '80', height = '80' }) => (
+const FullPageSpinner = ({ isFetching }) => isFetching ? (
   <SpinnerWrapper>
-    <SpinnerCircleSVG
-      width={width}
-      height={height}
-    />
+    <SpinnerCircleSVG width="190" height="190" />
   </SpinnerWrapper>
-);
+) : null;
 
-export default SpinnerCircle;
+export default FullPageSpinner;
