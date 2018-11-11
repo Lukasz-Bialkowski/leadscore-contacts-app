@@ -1,17 +1,15 @@
 import axios from 'axios';
 
-const CONTENT_TYPE = 'application/json';
+const RequestService = () => {
+  const axiosInstance = axios.create();
 
-class RequestService {
-  static axiosInstance = axios.create();
+  axiosInstance.interceptors.request.use(function (config) {
+    const token = localStorage.getItem('authToken');
+    config.headers['authToken'] = token ? token : '';
+    return config;
+  });
 
-  static get(url, params) {
-    return RequestService.axiosInstance.get(url, { params });
-  }
-
-  static post(url, payload) {
-    return RequestService.axiosInstance.post(url, payload);
-  }
+  return axiosInstance;
 }
 
-export default RequestService;
+export default RequestService();

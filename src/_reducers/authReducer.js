@@ -1,31 +1,45 @@
 import {
-  AUTHENTICATION_SUCCESS,
-  AUTHENTICATION_FETCHING,
-  AUTHENTICATION_ERROR,
-} from '../_actions/loginPageActions';
+  LOGIN_SUCCESS,
+  LOGIN_ERROR,
+  LOGIN_FETCHING,
+  STORE_AUTH_DATA,
+  LOGOUT_SUCCESS
+} from '../_actions/authActions';
 
-const INITIAL_STATE = { data: null, isFetching: false, isError: false };
+const INITIAL_STATE = { data: null, isFetching: false, isError: false, isAuthenticated: false };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
-  console.log('Inside authReducer', state);
   switch (type) {
-    case AUTHENTICATION_FETCHING:
+    case LOGIN_FETCHING:
       return {
         ...state,
         isFetching: true,
       };
-    case AUTHENTICATION_SUCCESS:
+    case LOGIN_SUCCESS:
       return {
         ...state,
         data: { ...payload },
+        authToken: payload.token.authToken,
         isFetching: false,
+        isAuthenticated: true,
       };
-    case AUTHENTICATION_ERROR:
+    case LOGIN_ERROR:
       return {
         ...state,
         isFetching: false,
         isError: true,
       };
+    case STORE_AUTH_DATA:
+      return {
+        ...state,
+        authToken: payload,
+        isAuthenticated: true,
+      };
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: false,
+      }
     default:
       return state;
   }
