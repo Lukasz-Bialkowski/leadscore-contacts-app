@@ -5,6 +5,7 @@ import { throttle } from "lodash";
 import ContactsListError from "../_common/ContactsListError";
 import ContactsListEmpty from "../_common/ContactsListEmpty";
 import WithInfiniteScroll from "../_common/WithInfiniteScroll";
+import SpinnerCircle from "../_common/SpinnerCircle";
 import ContactsList from "./ContactsList";
 import {
   filterContacts,
@@ -65,7 +66,7 @@ class ContactsListPage extends Component {
           fetchFunc={throttle(this.filterContacts, THROTTLE_TIMEOUT)}
         >
           <ContactsList contactsList={contactsList} />
-          {isFetching && <div>.... LOADING</div>}
+          {isFetching && <SpinnerCircle />}
         </WithInfiniteScroll>
       </Fragment>
     );

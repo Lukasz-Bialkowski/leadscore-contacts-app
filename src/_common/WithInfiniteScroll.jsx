@@ -1,8 +1,10 @@
 import React from "react";
 import InfiniteScroll from "react-infinite-scroller";
 
+import SpinnerCircle from "../_common/SpinnerCircle";
+
 const WithInfiniteScroll = ({ children, hasMore, fetchFunc }) => (
-  <InfiniteScroll hasMore={hasMore} loadMore={fetchFunc} loader={<div key={0}>LOADING</div>}>
+  <InfiniteScroll hasMore={hasMore} loadMore={fetchFunc} loader={<SpinnerCircle key={0}/>}>
     {children}
   </InfiniteScroll>
 );

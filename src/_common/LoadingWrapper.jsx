@@ -1,8 +1,10 @@
 import React from 'react';
 
-const LoadingWrapper = ({isFetching, isError, children}) => {
+import SpinnerCircle from "../_common/SpinnerCircle";
+
+const LoadingWrapper = ({isFetching, children}) => {
   if (isFetching) {
-    return <div>LOADING IN PROGRESS!</div>;
+    return <SpinnerCircle />;
   } else {
     return <div>{children}</div>;
   }

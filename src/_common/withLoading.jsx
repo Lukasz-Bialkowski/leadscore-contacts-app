@@ -1,9 +1,11 @@
 import React from 'react';
 
+import SpinnerCircle from "../_common/SpinnerCircle";
+
 const withLoading = (WrappedComponent) => {
   const WithLoading = ({ isLoading, ...props }) => {
     if (isLoading) {
-      return <div>Component Loading</div>;
+      return <SpinnerCircle />;
     }
     return <WrappedComponent {...props} />;
   };
