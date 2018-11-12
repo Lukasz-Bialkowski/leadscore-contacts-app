@@ -7,19 +7,20 @@ import FullPageSpinner from '../_common/FullPageSpinner';
 import LoginFormButtons from './LoginFormButtons';
 import ValidationError from './ValidationError';
 import Form from './Form';
+import { MOBILE_MIN_RESOLUTION_BOUNDARY } from '../_common/constants';
 
 const SectionWrapper = styled.div.attrs({ className: 'section-wrapper' })`
   font-size: 34px;
   padding: 30px 35px;
   width: 260px;
-  @media (min-width: 800px) {
+  @media (min-width: ${MOBILE_MIN_RESOLUTION_BOUNDARY}) {
     width: 380px;
     padding: 20px 43px;
   text-align: center;
   }
 `;
 const VerticalBar = styled.div.attrs({ className: 'vertical-bar' })`
-  @media (min-width: 800px) {
+  @media (min-width: ${MOBILE_MIN_RESOLUTION_BOUNDARY}) {
     border-left: 1px solid white;
     height: 60%;
   }
@@ -27,7 +28,7 @@ const VerticalBar = styled.div.attrs({ className: 'vertical-bar' })`
 const LoginPageWrapper = styled.div.attrs({ className: 'login-page-wrapper' })`
   display: flex;
   flex-direction: column;
-  @media (min-width: 800px) {
+  @media (min-width: ${MOBILE_MIN_RESOLUTION_BOUNDARY}) {
     flex-direction: row;
     align-items: center;
     justify-content: center;

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { FAKE_AVATAR_BACKGROUND_COLOR, FAKE_AVATAR_FONT_COLOR } from '../_common/colors';
+
 const AvatarWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -13,12 +15,12 @@ const FakeAvatar = styled.div`
   height: 80px;
   width: 80px;
   border-radius: 50%;
-  background-color: #ffff309c;
+  background-color: ${FAKE_AVATAR_BACKGROUND_COLOR};
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 30px;
-  color: black;
+  color: ${FAKE_AVATAR_FONT_COLOR};
   font-weight: 700;
   box-shadow: 0px 5px 20px 3px rgba(0, 0, 0, 0.8);
 `;

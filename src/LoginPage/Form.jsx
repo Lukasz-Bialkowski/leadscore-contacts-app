@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 import LoginSection from './LoginSection';
 import PasswordSection from './PasswordSection';
+import { MOBILE_MIN_RESOLUTION_BOUNDARY } from '../_common/constants';
 
 const FormContainer = styled.form.attrs({ className: 'login-form' })`
-  @media (min-width: 800px) {
+  @media (min-width: ${MOBILE_MIN_RESOLUTION_BOUNDARY}) {
     display: grid;
     grid-template-columns: 120px 250px;
     grid-template-rows: 40px 20px 40px 20px;

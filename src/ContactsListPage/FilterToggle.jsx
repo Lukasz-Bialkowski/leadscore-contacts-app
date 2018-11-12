@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import {
+  CONTACTS_FILTER_BUTTON_DISABLED,
+  CONTACTS_FILTER_BUTTON_ENABLED,
+} from '../_common/colors';
+
 const PERSON_FILTER = 'PERSON';
 const COMPANY_FILTER = 'COMPANY';
 
@@ -18,7 +23,9 @@ const FilterButtonLeft = styled.button.attrs({
   font-size: ${props => (!props.disabled ? '16px' : '19px')};
   font-weight: 700;
   display: inline-block;
-  background-color: ${props => (props.disabled ? '#ffffffe6' : '#00000040')};
+  background-color: ${props => (props.disabled
+    ? CONTACTS_FILTER_BUTTON_DISABLED
+    : CONTACTS_FILTER_BUTTON_ENABLED)};
   box-shadow: ${props => (props.disabled
     ? '0 0px 8px 1px rgba(255,255,255, 0.5), 0 0px 50px 0 rgba(0, 0, 0, 0.2);'
     : '0px 0px 2px 0px black')};
@@ -50,13 +57,13 @@ const FilterToggle = ({ addFilter, value }) => (
       disabled={shouldDisableFilter(value, PERSON_FILTER)}
       onClick={() => addFilter(PERSON_FILTER)}
     >
-      { PERSON_FILTER }
+      {PERSON_FILTER}
     </FilterButtonLeft>
     <FilterButtonRight
       disabled={shouldDisableFilter(value, COMPANY_FILTER)}
       onClick={() => addFilter(COMPANY_FILTER)}
     >
-      { COMPANY_FILTER }
+      {COMPANY_FILTER}
     </FilterButtonRight>
   </FilterToggleWrapper>
 );

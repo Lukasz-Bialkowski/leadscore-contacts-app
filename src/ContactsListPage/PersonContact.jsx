@@ -4,13 +4,14 @@ import _ from 'lodash';
 
 import Avatar from './Avatar';
 import PersonContactData from './PersonContactData';
+import { PERSON_CONTACT_COLOR } from '../_common/colors';
 
 const ContactWrapper = styled.div.attrs({ className: 'contact-wrapper' })`
   height: 270px;
   width: 600px;
   overflow: auto;
   text-overflow: ellipsis;
-  background-color: #111;
+  background-color: ${PERSON_CONTACT_COLOR};
   box-shadow: 0px 5px 20px 3px rgba(0, 0, 0, 0.8);
   border-radius: 4px;
   padding: 30px;

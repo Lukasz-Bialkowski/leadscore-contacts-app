@@ -5,6 +5,7 @@ import ErrorSVG from '../images/error.svg';
 import EmptySVG from '../images/empty.svg';
 import NotFoundSVG from '../images/notfound.svg';
 import UnauthorizedSVG from '../images/unauthorized.svg';
+import { PAGE_PLACEHOLDER_SUBTITLE } from './colors';
 
 export const ERROR_SVG_NAME = 'error';
 export const EMPTY_SVG_NAME = 'empty';
@@ -34,7 +35,7 @@ const Subtitle = styled.div.attrs({ className: 'title' })`
   width: 80%;
   font-size: 24px;
   text-align: center;
-  color: #999999;
+  color: ${PAGE_PLACEHOLDER_SUBTITLE};
 `;
 
 const SVGIcon = ({ svgName }) => {

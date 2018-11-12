@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 import Avatar from './Avatar';
 import CompanyContactData from './CompanyContactData';
+import { COMPANY_CONTACT_COLOR } from '../_common/colors';
 
 const CompanyContactWrapper = styled.div.attrs({
   className: 'contact-wrapper',
@@ -12,7 +13,7 @@ const CompanyContactWrapper = styled.div.attrs({
   width: 600px;
   overflow: auto;
   text-overflow: ellipsis;
-  background-color: #111;
+  background-color: ${COMPANY_CONTACT_COLOR};
   box-shadow: 0px 5px 20px 3px rgba(0, 0, 0, 0.8);
   border-radius: 4px;
   padding: 30px;

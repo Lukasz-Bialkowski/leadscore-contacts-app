@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 
+import { MOBILE_MIN_RESOLUTION_BOUNDARY } from '../_common/constants';
+
 const Input = styled.input.attrs({
   className: 'input',
   placeholder: props => props.placeholder,
@@ -11,7 +13,7 @@ const Input = styled.input.attrs({
   height: 30px;
   font-size: 20px;
   border: 0;
-  @media (min-width: 800px) {
+  @media (min-width: ${MOBILE_MIN_RESOLUTION_BOUNDARY}) {
     font-size: 16px;
     width: 220px;
     height: 25px;

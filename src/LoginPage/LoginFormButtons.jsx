@@ -1,13 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import {
+  SIGN_UP_BUTTON_COLOR,
+  LOGIN_BUTTON_ENABLED,
+  LOGIN_BUTTON_DISABLED,
+  LOGIN_BUTTON_FONT_COLOR,
+  SIGNUP_BUTTON_FONT_COLOR,
+} from '../_common/colors';
+
 const LOGIN_BUTTON = 'Login';
 const SIGN_UP_BUTTON = 'Sign up';
 
-const ButtonsWrapper = styled.div`
+const ButtonsWrapper = styled.div.attrs({ className: 'buttons-wrapper' })`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 25px 0px;
 `;
 
 const SignupButton = styled.a.attrs({
@@ -17,8 +26,8 @@ const SignupButton = styled.a.attrs({
   display: inline-block;
   font-size: 16px;
   width: 120px;
-  background-color: #00000036;
-  color: black;
+  background-color: ${SIGN_UP_BUTTON_COLOR};
+  color: ${SIGNUP_BUTTON_FONT_COLOR};
   padding: 8px 20px;
   font-weight: 700;
   text-align: center;
@@ -32,8 +41,8 @@ const LoginButton = styled.button.attrs({
   font-size: 16px;
   font-weight: 700;
   display: inline-block;
-  background-color: ${props => (props.disabled ? '#a5a3259e' : '#ccc92de0')};
-  color: black;
+  background-color: ${props => (props.disabled ? LOGIN_BUTTON_DISABLED : LOGIN_BUTTON_ENABLED)};
+  color: ${LOGIN_BUTTON_FONT_COLOR};
   padding: 8px 20px;
   width: 120px;
   border: 0px;

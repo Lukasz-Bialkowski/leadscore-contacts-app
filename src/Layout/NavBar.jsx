@@ -1,54 +1,42 @@
-import React, { Fragment } from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import TeamSVG from '../images/team.svg';
+import React, { Fragment } from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
-const NavbarWrapper = styled.nav.attrs({ className: 'navbar' })`
+import AppLogo from './AppLogo';
+import { NAVBAR_ACTIVE_LINK, ITEM_HOVER, NAVBAR_BACKGROUND_COLOR } from '../_common/colors';
+
+const NavbarWrapper = styled.nav.attrs({ className: "navbar" })`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0000002e;
+  background-color: ${NAVBAR_BACKGROUND_COLOR};
   padding: 20px;
   font-size: 24px;
   font-weight: 700;
 `;
-const AppLogo = styled.div.attrs({ className: 'app-logo' })`
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-const NavbarList = styled.ul.attrs({ className: 'navbar-list' })`
+
+const NavbarList = styled.ul.attrs({ className: "navbar-list" })`
   display: flex;
   align-items: center;
 `;
-const NavbarItem = styled.li.attrs({ className: 'navbar-item' })`
+
+const NavbarItem = styled.li.attrs({ className: "navbar-item" })`
   padding: 10px;
   padding-right: 20px;
 `;
 
-const StyledNav = styled(NavLink).attrs({ activeStyle: { color: '#a5a325' } })`
-  &:hover { color: yellow;}
-`;
-const AppLogoHeader = styled.div`
-@media (min-width: 800px) {
-  display: inherit;
-}
-display: none;
-&:hover { color: yellow;}
+const StyledNav = styled(NavLink).attrs({ activeStyle: { color: NAVBAR_ACTIVE_LINK } })`
+  &:hover {
+    color: ${ITEM_HOVER};
+  }
 `;
 
-const AppLogoImage = styled.div`
-@media (min-width: 800px) {
-  display: none;
-}
-display: inherit;
-&:hover { color: yellow;}
-`;
 const AuthUserLinks = ({ logout, authToken }) => (
   <Fragment>
     <NavbarItem className="nav-item">
-      <StyledNav to="/contacts" className="nav-link">Contacts</StyledNav>
+      <StyledNav to="/contacts" className="nav-link">
+        Contacts
+      </StyledNav>
     </NavbarItem>
     <NavbarItem className="nav-item">
       <a href="#" className="nav-link" onClick={() => logout({ authToken })}>
@@ -61,25 +49,30 @@ const AuthUserLinks = ({ logout, authToken }) => (
 const QuestLinks = () => (
   <Fragment>
     <NavbarItem className="nav-item">
-      <StyledNav to="/login" className="nav-link">Login</StyledNav>
+      <StyledNav to="/login" className="nav-link">
+        Login
+      </StyledNav>
     </NavbarItem>
     <NavbarItem className="nav-item">
-      <a href="https://app-staging.leadscore.io/#/signup" className="nav-link">Sign up</a>
+      <a href="https://app-staging.leadscore.io/#/signup" className="nav-link">
+        Sign up
+      </a>
     </NavbarItem>
   </Fragment>
 );
 
 const NavBar = ({ isAuthenticated, logout, authToken }) => (
   <NavbarWrapper>
-    <AppLogo>
-      <a href="/"><AppLogoImage><TeamSVG height="50px" fill="white" style={{ padding: '10px' }} /></AppLogoImage></a>
-      <AppLogoHeader to="/">Leadscore-Contacts-App</AppLogoHeader>
-    </AppLogo>
+    <AppLogo />
     <NavbarList>
       <NavbarItem>
         <StyledNav to="/main">Main</StyledNav>
       </NavbarItem>
-      {isAuthenticated ? <AuthUserLinks logout={logout} authToken={authToken} /> : <QuestLinks />}
+      {isAuthenticated ? (
+        <AuthUserLinks logout={logout} authToken={authToken} />
+      ) : (
+        <QuestLinks />
+      )}
     </NavbarList>
   </NavbarWrapper>
 );

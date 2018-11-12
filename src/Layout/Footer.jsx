@@ -3,12 +3,14 @@ import styled from 'styled-components';
 
 import LinkedInSVG from '../images/linkedin.svg';
 import GithubSVG from '../images/github.svg';
+import { FOOTER_WRAPPER_COLOR, ITEM_HOVER } from '../_common/colors';
 
 const FooterWrapper = styled.footer.attrs({ className: 'footer' })`
   text-align: center;
-  background-color: #0000002e;
+  background-color: ${FOOTER_WRAPPER_COLOR};
   padding: 30px;
 `;
+
 const LinksWrapper = styled.div.attrs({
   className: 'links-wrapper',
   href: props => props.href,
@@ -18,11 +20,9 @@ const LinksWrapper = styled.div.attrs({
   align-items: center;
   margin-top: 22px;
 `;
+
 const Link = styled.a.attrs({ className: 'link' })`
   padding: 0px 10px;
-  &:hover {
-    color: yellow;
-  }
 `;
 
 const LinkedInLink = styled.a.attrs({
@@ -32,22 +32,18 @@ const LinkedInLink = styled.a.attrs({
   font-weight: 700;
   text-decoration: underline;
   &:hover {
-    color: yellow;
+    color: ${ITEM_HOVER};
   }
 `;
 
 const Footer = () => (
   <FooterWrapper>
     Leadscore-Contacts-App by&nbsp;
-    <LinkedInLink
-      href="https://www.linkedin.com/in/%C5%82ukasz-bia%C5%82kowski-8ba74a123/"
-    >
+    <LinkedInLink href="https://www.linkedin.com/in/%C5%82ukasz-bia%C5%82kowski-8ba74a123/">
       @Lukasz Bialkowski
     </LinkedInLink>
     <LinksWrapper>
-      <Link
-        href="https://www.linkedin.com/in/%C5%82ukasz-bia%C5%82kowski-8ba74a123/"
-      >
+      <Link href="https://www.linkedin.com/in/%C5%82ukasz-bia%C5%82kowski-8ba74a123/">
         <LinkedInSVG height="20px" fill="white" />
       </Link>
       <Link href="https://github.com/Lukasz-Bialkowski">

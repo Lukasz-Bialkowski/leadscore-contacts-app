@@ -1,0 +1,1 @@
+export const MOBILE_MIN_RESOLUTION_BOUNDARY = '800px';
