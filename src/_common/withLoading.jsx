@@ -7,10 +7,8 @@ const withLoading = (WrappedComponent) => {
     }
     return <WrappedComponent {...props} />;
   };
-  const wrappedComponentName = WrappedComponent.displayName || WrappedComponent.name || 'Component';
 
-  WithLoading.displayName = `withLoading(${wrappedComponentName})`;
-
+  WithLoading.displayName = `withLoading(${WrappedComponent.displayName})`;
   return WithLoading;
 };
 
